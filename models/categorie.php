@@ -1,11 +1,11 @@
 <?php
     class categorie{
-        public $name;
-        public $icon;
+        public $nome;
+        public $icona;
 
-        public function __CONSTRUCT($catenome, $cateicona){
-            $this -> name = $name;
-            $this -> icon = $icon;
+        public function __CONSTRUCT($nome, $icona){
+            $this -> nome = $nome;
+            $this -> icona = $icona;
         }
     }
 ?>

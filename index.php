@@ -1,13 +1,5 @@
 <?php
-    class categorie{
-        public $animalname;
-        public $animalicon;
-
-        public function __construct($animalname, $animalicon){
-            $this -> animalname = $animalname;
-            $this -> animalicon = $animalicon;
-        }
-    }
+    include __DIR__.'/database/database.php';
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +17,73 @@
 </head>
 <body>
 
+    <div class="container m-5">
 
+        <div class="row p-3">
+
+            <h1>Boolshop</h1>
+
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 p-3">
+
+        <?php foreach($prodotti as $prodotto) { ?>
+
+            <div class="col">
+
+                <div class="card h-100 shopcard">
+
+                <img src="<?php echo $prodotto -> image; ?>" class="card-img-top" alt="<?php echo $prodotto -> nome; ?>">
+
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $prodotto -> nome; ?></h5>
+                    <p class="card-text">
+                        <?php echo $prodotto -> category -> icona." ".$prodotto -> category -> nome; ?>
+                    </p>
+                </div>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">€<?php echo $prodotto -> price; ?></li>
+                    <li class="list-group-item">
+                    <?php 
+                        
+                        if(isset($prodotto -> weight)){
+                            echo $prodotto -> weight;
+                        }
+                        if(isset($prodotto -> details)){
+                            echo $prodotto -> details;
+                        }
+                        if(isset($prodotto -> material)){
+                            echo $prodotto -> material;
+                        }
+
+                    ?>
+                    </li>
+                    <li class="list-group-item">
+                    <?php 
+                        
+                        if(isset($prodotto -> ingredients)){
+                            foreach($prodotto -> ingredients as $ingredienti){
+                                echo $ingredienti." - ";
+                            };
+                        }
+                        if(isset($prodotto -> size)){
+                            echo $prodotto -> size;
+                        }
+
+                    ?>
+                    </li>
+                </ul>
+
+                </div>
+
+            </div>
+
+        <?php } ?>
+
+        </div>
+
+    </div>
 
     <script src="./js/script.js"></script>
     

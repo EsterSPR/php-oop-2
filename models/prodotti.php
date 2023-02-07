@@ -1,13 +1,13 @@
 <?php
     class prodotti{
         public $image;
-        public $name;
+        public $nome;
         public $category;
         public $price;
 
-        public function __construct($image, $name, categorie $category, $price){
+        public function __construct($image, $nome, categorie $category, $price){
             $this -> image = $image;
-            $this -> name = $name;
+            $this -> nome = $nome;
             $this -> category = $category;
             $this -> price = $price;
         }
